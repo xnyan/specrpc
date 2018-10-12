@@ -1,0 +1,54 @@
+#The directory that consists of all of the files to be deployed.
+DEPLOY_RC_DIR="./deploy-config"
+
+#=====Files to Be Deployed=====
+#Fies that have to be manualy configured.
+#Log configuration file
+DEPLOY_LOG_CONFIG_FILE="log4j.properties"
+#RPC framework (tradrpc or specrpc) configuration file
+DEPLOY_RPC_CONFIG_FILE="rpc.conf"
+#Data key file
+DEPLOY_RC_KEY_FILE="rc-keys.conf"
+#Files that can be auto-generated based on deployment evironemtn settings.
+#Binary file
+DEPLOY_RC_APP_FILE="replicatedcommit-0.1-jar-with-dependencies.jar"
+#Server list file
+DEPLOY_SERVER_LIST_FILE="server-list.conf"
+#Client list file
+DEPLOY_CLIENT_LIST_FILE="client-list.conf"
+#ReplicateCommit configuration file
+DEPLOY_RC_CONFIG_FILE="rc-config.conf"
+#RPC signatures for tradrpc or specrpc
+DEPLOY_RPC_SIG_FILE="rpc-signatures"
+
+#====Deployment Evironment Settings====
+#RPC framework: specrpc, tradrpc, grpc
+rpc="specrpc"
+#Execution directory on a deployed machine
+exec_dir="/ssd1/x29yan/rc"
+
+#Servers
+#The number of datacenters for servers
+server_dc_num=3
+#The number of data partitions (per datacenter)
+partition_num=3
+#Server list file that specifies the server ips and their ids
+server_machine_list="syn-server-machines.conf"
+#The number of actual server machines that are required
+server_machine_num=9
+#Server port base
+#Different servers will be configured to have different ports to support multiple servers running on the same machine.
+server_port_base=4001
+
+#Clients
+#The number of datacenters for clients
+client_dc_num=3
+#Client list file that specifies the client ips and their ids
+client_machine_list="syn-client-machines.conf"
+#The number of actual client machines that are required
+client_machine_num=2
+#The number of client instances
+client_num=4
+#Client port base (for specrpc only)
+#Clients on the same machine will be configured with different port
+client_port_base=5001

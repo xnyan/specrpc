@@ -1,0 +1,69 @@
+##RPC Configurations
+#
+#RPC framework type
+#TRADRPC  (Default), SPECRPC, GRPC
+rpc.framework=tradrpc
+
+#RPC framework config file if any (e.g. for TRADRPC and SPRECRPC)
+#Default for TRADRPC and SPRECRPC is $SPECRPC_HOME/conf/rpc-defaults.conf
+rpc.config.file=./rpc.conf
+
+##SpecRPC Configurations
+#If enables specrpc prediction statistics, default is true
+#This overrides the one in specrpc's configuration
+rpc.specrpc.statistics.enabled=true
+
+##Client & Server Configurations
+random.seed=0
+
+#Client Benchmark / Workload Configurations
+#
+#Benchmark runing time: 60s (default)
+#Format examples: PT5h, PT5m, or PT5s means 5 hours, minutes or seconds.
+benchmark.running.time=PT60s
+#Target throughput: # of Requests per second
+#Default is 0, means max throughput can make by sending requests back-to-back
+benchmark.throughput=0
+
+#Workload Type: one_hop or multi_hop
+workload.type=one_hop
+#RPC numbers issued by the client
+workload.req.rpc.num=1
+#Number of RPC hops among servers, including the one between client and server
+workload.req.rpc.hop.num=1
+#Total number of servers. Server ids range from 1 to num.
+workload.server.num=4
+#bytes
+workload.req.data.length=64
+#Client computation time, unit: ms
+workload.client.local.comp.time.afterRpc=0
+#Computation time before a server issues the next RPC, unit: ms
+workload.server.comp.time.beforeRpc=0
+workload.server.comp.time.afterRpc=0
+
+##Speculation configuration
+#If a client predicts its RPC result
+spec.client.isPredict=false
+#For each RPC
+spec.client.correct.rate=100
+#If a server predicts its RPC result
+spec.server.isPredict=false
+#For each RPC
+spec.server.correct.rate=100
+
+#When a server predicts its RPC result:
+#BEFORE_ANY, // before doing any operation
+#BEFORE_RPC, // before calling the first RPC
+#AFTER_RPC, // after calling the last RPC
+spec.server.predict.point=before_rpc
+
+##Server Configurations
+#Optional, and will be over written by "dcId-shardId" at runtime.
+server.id=1
+server.ip=localhost
+server.port=4001
+
+##Client Configurations
+#Optional, and will be overwritten by runtime configurations.
+client.id=1
+

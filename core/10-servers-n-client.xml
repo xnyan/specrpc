@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="specrpc-core" default="IterMultiServersTest" basedir="../">
+	<target name="IterMultiServersTest">
+		<delete file="./conf/rpc-signatures"/>
+		
+		<path id="classpath.base">
+			<pathelement location="./core/target/test-classes"/>
+      <pathelement path="${java.class.path};./core/target/specrpc-core-0.1-jar-with-dependencies.jar;./core/ant-test-libs/gson-2.2.4.jar;./core/ant-test-libs/junit-4.8.2.jar"/>
+		</path>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="0" />
+			<classpath refid="classpath.base" />
+		</java>	
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="1" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="2" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="3" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="4" />
+			<classpath refid="classpath.base" />
+		</java>	
+
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="5" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="6" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="7" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="8" />
+			<classpath refid="classpath.base" />
+		</java>	
+
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="server"/>
+			<arg value="9" />
+			<classpath refid="classpath.base" />
+		</java>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="client"/>
+			<arg value="1" />
+			<arg value="5000" /> <!-- How many clients will run sequentially-->
+			<classpath refid="classpath.base" />
+		</java>
+
+	</target>
+
+</project>

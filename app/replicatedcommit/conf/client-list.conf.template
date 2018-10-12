@@ -1,0 +1,13 @@
+#Replicated Commit protocol configuration file
+rc.config rc-config.conf
+
+#RPC framwork type, tradrpc, specrpc, or grpc
+rpc.type tradrpc
+
+#Server executing directory
+#exec.dir ${HOME}/workspace/specrpcv2/app/replicatedcommit/sbin/test
+exec.dir ${HOME}/workspace/specrpcv2/app/replicatedcommit/conf/test
+
+#DcId, ClientHostId(MachineId), Num of Clients, IP, Spec Proxy (Base) Port
+1 l1 1 127.0.0.1 5001
+2 l2 2 127.0.0.1 5001

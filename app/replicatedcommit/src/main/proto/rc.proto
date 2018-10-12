@@ -1,0 +1,120 @@
+// 
+// Copyright 2017 SpecRPC authors                                                                           
+//                                                                                                                       
+// Licensed under the Apache License, Version 2.0 (the "License");                                                      
+// you may not use this file except in compliance with the License.                                                     
+// You may obtain a copy of the License at                                                                              
+//                                                                                                                      
+//     http://www.apache.org/licenses/LICENSE-2.0                                                                       
+//                                                                                                                      
+// Unless required by applicable law or agreed to in writing, software                                                  
+// distributed under the License is distributed on an "AS IS" BASIS,                                                    
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                             
+// See the License for the specific language governing permissions and                                                  
+// limitations under the License. 
+//
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "rc.grpc";
+option java_outer_classname = "RcGrpc";
+
+package rc.grpc;
+
+service RcService {
+  // RPCs provided by non-coordinator servers for clients to call
+  rpc read (TxnReadRequest) returns (TxnReadResponse);
+  rpc clientAbortTxn (ClientAbortTxnRequest) returns (ClientAbortTxnResponse);
+  
+  // RPCs provided by non-coordinator servers for coordinators to call
+  rpc prepareTxn (PrepareTxnRequest) returns (PrepareTxnResponse);
+  rpc abortTxn (AbortTxnRequest) returns (AbortTxnResponse);
+  rpc commitTxn (CommitTxnRequest) returns (CommitTxnResponse);
+
+  // RPCs provided by coordinators for clients to call
+  rpc proposeToCommitTxn (ProposeCommitTxnRequest) returns (ProposeCommitTxnResponse);
+
+  // RPCs provided by coordinators for other coordinators to call
+  rpc voteToCommitTxn (VoteCommitTxnRequest) returns (VoteCommitTxnResponse);
+
+  // Database helper RPCs
+  rpc parseAndLoadData (DataFileInfo) returns (IsDoneResponse);
+  rpc dumpOrSyncData (DataFileInfo) returns (IsDoneResponse);
+}
+
+message TxnReadRequest {
+  string txnId = 1;
+  string readKey = 2;
+}
+
+message TxnReadResponse {
+  string value = 1;
+  int64 version = 2;
+  bool isSharedLockAcquired = 3;
+}
+
+message ClientAbortTxnRequest {
+  string txnId = 1;
+  repeated string readKey = 2;
+}
+
+message ClientAbortTxnResponse {
+  bool isAborted = 1;
+}
+
+message PrepareTxnRequest {
+  string txnId = 1;
+  repeated string readKey = 2;
+  repeated string writeKey = 3;
+  repeated string writeVal = 4;
+}
+
+message PrepareTxnResponse {
+  bool isPrepared = 1;
+}
+
+message AbortTxnRequest {
+  string txnId = 1;
+}
+
+message AbortTxnResponse {
+  bool isAborted = 1;
+}
+
+message CommitTxnRequest {
+  string txnId = 1;
+}
+
+message CommitTxnResponse {
+  bool isCommitted = 1;
+}
+
+message ProposeCommitTxnRequest {
+  string txnId = 1;
+  repeated string readKey = 2;
+  repeated string writeKey = 3;
+  repeated string writeVal = 4;
+}
+
+message ProposeCommitTxnResponse {
+  bool isToCommit = 1;
+}
+
+message VoteCommitTxnRequest {
+  string txnId = 1;
+  bool isVoteToCommit = 2;
+}
+
+message VoteCommitTxnResponse {
+  bool isConsensusMade = 1;
+}
+
+message DataFileInfo {
+  string dataFile = 1;
+  string dataFileDir = 2;
+}
+
+message IsDoneResponse {
+  bool isDone = 1;
+}

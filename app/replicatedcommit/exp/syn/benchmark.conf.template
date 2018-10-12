@@ -1,0 +1,26 @@
+##  Workload types: ycsbt, retwis
+##  random-seed: 0 for dynamic
+##  zipf-alpha: 0 or negative for uniform
+##  
+##  YCSBT Format
+##  A rmw operation consists of one read and one write on the same key.
+##  (ycsbt, random-seed, zipf-alpha, #operation-per-txn, read-portion, write-portion, rmw-portion)
+##  
+##  Retwis Format
+##  Default retwis transaction profile:
+##  adduser-portion(%)=5, follow-portion=15, post-portion=30, load-portion=50
+##  (retwis, random-seed, zipf-alpha, adduser-portion, follow-portion, post-portion, load-portion)
+#
+##  Benchmark Format
+##  (storage-type, is-speculation-statistics, #txn-per-second, execution-time, <Workload Config>)
+##  storage-type: im (in-memory key-value store) or bdb (BerkleyDB with data persisted to disks)
+##  is-speculation-statistics: if enables speculation statistics, true or false
+##  execution-time: PT5h, PT5m, or PT5s means 5 hours, minutes or seconds.
+
+(im, true, 0, PT60s, retwis, 0, 0.75, 5, 15, 30, 50)
+
+(bdb, false, 100, PT60s, retwis, 0, 0.75, 5, 15, 30, 50)
+
+(im, false, 0, PT60s, ycsbt, 1, 0.75, 5, 50, 50, 0)
+
+(bdb, ture, 200, PT60s, ycsbt, 1, 0.75, 5, 80, 20, 0)

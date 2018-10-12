@@ -1,0 +1,12 @@
+# May get overridden by System Property
+logger.type=Console
+
+log4j.rootLogger=INFO, ${logger.type}
+#log4j.rootLogger=DEBUG, ${logger.type}
+
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.Target=System.err
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=%d{ISO8601} %-5p %c{1} (%F - %M): %m%n
+#log4j.appender.Console.layout.ConversionPattern=%d{ISO8601} %-5p %c{1} (%F - %M - %L) - %m%n
+#log4j.appender.Console.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{1}: %m%n

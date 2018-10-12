@@ -1,0 +1,9 @@
+#The directory that consists of all the config files. Default is "./"
+DEPLOY_RC_DIR="./"
+DEPLOY_RC_APP_FILE="replicatedcommit-0.1-jar-with-dependencies.jar"
+DEPLOY_RC_CONFIG_FILE="rc-config.conf"
+DEPLOY_RC_KEY_FILE="rc-keys.conf"
+DEPLOY_RPC_CONFIG_FILE="rpc.conf"
+DEPLOY_RPC_SIG_FILE="rpc-signatures"
+DEPLOY_LOG_CONFIG_FILE="log4j.properties"
+

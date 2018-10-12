@@ -1,0 +1,87 @@
+#workload_type
+#rpc_number / hop_number
+#local_comp
+#server_comp_before_rpc
+#server_comp_after_rpc
+#client_predict
+#client_predict_correct_rate
+#server_predict
+#server_predict_correct_rate
+
+##OneHop
+#Baseline
+(one_hop, 4, 0, 0, 10, true, 90, false, 100)
+
+#Prediction Correct Rate
+(one_hop, 4, 0, 0, 10, true, 0, false, 100)
+(one_hop, 4, 0, 0, 10, true, 10, false, 100)
+(one_hop, 4, 0, 0, 10, true, 20, false, 100)
+(one_hop, 4, 0, 0, 10, true, 30, false, 100)
+(one_hop, 4, 0, 0, 10, true, 40, false, 100)
+(one_hop, 4, 0, 0, 10, true, 50, false, 100)
+(one_hop, 4, 0, 0, 10, true, 60, false, 100)
+(one_hop, 4, 0, 0, 10, true, 70, false, 100)
+(one_hop, 4, 0, 0, 10, true, 80, false, 100)
+(one_hop, 4, 0, 0, 10, true, 100, false, 100)
+
+#RPC number
+(one_hop, 1, 0, 0, 10, true, 90, false, 100)
+(one_hop, 2, 0, 0, 10, true, 90, false, 100)
+(one_hop, 3, 0, 0, 10, true, 90, false, 100)
+(one_hop, 5, 0, 0, 10, true, 90, false, 100)
+(one_hop, 6, 0, 0, 10, true, 90, false, 100)
+(one_hop, 7, 0, 0, 10, true, 90, false, 100)
+(one_hop, 8, 0, 0, 10, true, 90, false, 100)
+(one_hop, 9, 0, 0, 10, true, 90, false, 100)
+(one_hop, 10, 0, 0, 10, true, 90, false, 100)
+
+#No prediction resource
+(one_hop, 1, 0, 0, 10, false, 100, false, 100)
+(one_hop, 2, 0, 0, 10, false, 100, false, 100)
+(one_hop, 3, 0, 0, 10, false, 100, false, 100)
+(one_hop, 4, 0, 0, 10, false, 100, false, 100)
+(one_hop, 5, 0, 0, 10, false, 100, false, 100)
+(one_hop, 6, 0, 0, 10, false, 100, false, 100)
+(one_hop, 7, 0, 0, 10, false, 100, false, 100)
+(one_hop, 8, 0, 0, 10, false, 100, false, 100)
+(one_hop, 9, 0, 0, 10, false, 100, false, 100)
+(one_hop, 10, 0, 0, 10, false, 100, false, 100)
+
+##Multi-Hop
+#Baseline
+(multi_hop, 4, 0, 0, 10, false, 100, true, 90)
+
+#Prediction Correct Rate
+(multi_hop, 4, 0, 0, 10, false, 100, true, 0)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 10)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 20)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 30)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 40)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 50)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 60)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 70)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 80)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 100)
+
+#RPC Hop Number
+(multi_hop, 1, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 2, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 3, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 5, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 6, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 7, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 8, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 9, 0, 0, 10, false, 100, true, 90)
+(multi_hop, 10, 0, 0, 10, false, 100, true, 90)
+
+#No prediction resource
+(multi_hop, 1, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 2, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 3, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 4, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 5, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 6, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 7, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 8, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 9, 0, 0, 10, false, 100, false, 100)
+(multi_hop, 10, 0, 0, 10, false, 100, false, 100)

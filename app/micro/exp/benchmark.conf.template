@@ -1,0 +1,13 @@
+#workload_type
+#rpc_number / hop_number
+#local_comp
+#server_comp_before_rpc
+#server_comp_after_rpc
+#client_predict
+#client_predict_correct_rate
+#server_predict
+#server_predict_correct_rate
+#(one_hop, 4, 0, 0, 10, false, 100, false, 100)
+(one_hop, 4, 0, 0, 10, true, 100, false, 100)
+(multi_hop, 4, 0, 0, 10, false, 100, true, 100)
+#(multi_hop, 4, 0, 0, 10, false, 100, false, 100)

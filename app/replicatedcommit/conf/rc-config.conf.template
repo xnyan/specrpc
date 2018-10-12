@@ -1,0 +1,146 @@
+##RPC Configurations
+#
+#RPC framework type
+#TRADRPC  (Default)
+#SPECRPC
+#GRPC
+rc.rpc.framework=tradrpc
+
+#RPC framework config file if any (e.g. for TRADRPC and SPRECRPC)
+#Default for TRADRPC and SPRECRPC is $SPECRPC_HOME/conf/rpc-defaults.conf
+rc.rpc.config.file=./rpc.conf
+
+##SpecRPC Configurations
+#The port of clien-side read proxy, default is 3000.
+rc.rpc.specrpc.readProxy.port=3000
+#If enables specrpc prediction statistics, default is true
+#This overrides the one in specrpc's configuration
+rc.rpc.specrpc.statistics.enabled=true
+
+##Data Configurations
+#The file that consists of all the keys
+rc.data.keyfile=./rc-keys.conf
+
+##Client Configurations
+#Client ID (optional), will be overwritten by runtime configurations.
+rc.client.lib.id=1
+
+#Thread pool size. Default is 0, which means a dynamic size.
+rc.client.lib.threadPool.size=0
+
+#Client lib with SpecRPC has a read proxy that should start up before
+#performing any operations. The start waiting time: 500ms (default)
+rc.client.lib.specrpc.readproxy.starttime=500
+
+#Client Benchmark / Workload Configurations
+#
+#Benchmark runing time: 60s (default)
+#Format examples: PT5h, PT5m, or PT5s means 5 hours, minutes or seconds.
+rc.benchmark.running.time=PT60s
+#Target throughput: # of Txn per second
+#Default is 0, means max throughput can make by sending txns back-to-back
+rc.benchmark.throughput=0
+
+#Workload random seed: 0 for dynamic (default)
+rc.workload.random.seed=0
+
+#Key distribution: zipf (default) or uniform
+rc.workload.keydistribution=zipf
+
+#Zipf distribution alpha: 0.75 (default)
+rc.workload.zipf.alpha=0.75
+
+#Worklad types: ycsbt (default) or retwis
+rc.workload=ycsbt
+
+#YCSB+T
+#YCSB+T the number of operations per txn: 4 (default)
+rc.workload.ycsbt.operation.num=4
+#YCSB+T write portion(%): 50 (default)
+rc.workload.ycsbt.writeportion=50
+#YCSB+T read portion(%): 50 (default)
+rc.workload.ycsbt.readportion=50
+#YCSB+T read-modify-write portion(%): 0 (default)
+#A rmw operation consists of one read and one write on the same key.
+rc.workload.ycsbt.rmwportion=0
+
+#Retwis
+#Retwis adduser portion(%): 5 (default)
+rc.workload.retwis.adduser=5
+#Retwis follow/unfollow portion(%): 15 (default)
+rc.workload.retwis.follow=15
+#Retwis post tweet portiion(%): 30 (default)
+rc.workload.retwis.post=30
+#Retwis load timeline portion(%): 50 (default)
+rc.workload.retwis.load=50
+
+
+##Server Configurations
+#
+#Datacenter and shard ID (both are optional), will be overwritten by runtime parameters.
+#Server ID (optional), will be over written by "dcId-shardId" at runtime.
+rc.dc.id=1
+rc.dc.shard.id=2
+rc.server.id=1-2
+
+#Total number of DCs (required)
+rc.dc.num=3
+#A list of DC IDs (required). Format: 1,2,3
+rc.dc.id.list=1,2,3
+
+# Total number of shards (required). Each DC has identical shards.
+rc.dc.shard.num=3
+#A list of shard IDs (required). Format: 1,2,3,4
+rc.dc.shard.id.list=1,2,3
+
+#Txn coordinator configuration
+#Thread pool size. Default is 0, which means a dynamic size.
+rc.txn.coordinator.threadPool.size=0
+
+#Database Configurations
+#
+#Key-value storage class
+#rc.server.db.storage.InMemKeyValStore (Default)
+#rc.server.db.storage.BerkeleyDbKeyValStore
+rc.db.storage.class=rc.server.db.storage.InMemKeyValStore
+
+#BerkeleyDB configurations if using BerkeleyDbKeyValStore
+#
+#BerkeleyDB environment directory (Required, no default)
+rc.db.storage.bdb.env.dir=./
+#
+#If BerkeleyDB is readOnly, default is false
+rc.db.storage.bdb.readOnly=false
+#
+#If BerkeleyDB supports transactions, default is false
+rc.db.storage.bdb.txn=false
+#
+#BerkeleyDB lock timeout in both transaction and non-transaction model.
+#Format examples: PT5h, PT5m, or PT5s means 5 hours, minutes or seconds.
+#Default is PT5m, that is 5 minutes
+rc.db.storage.bdb.lockTimeout=PT5m
+#
+#BerkeleyDB cache size, i.e. memory pool, which must be at least the size of
+#working set pluses some extra size.
+#Format examples: 2gb, 2m, 2kilobytes, or 4B means 2GB, 2MB, 2KB or 4B
+#Default is 1g, i.e. 1GB
+#Note: BerkeleyDB requires min 20KB, max 4GB or 10TB on 32-bit or 64-bit OS, with default as 256KB
+rc.db.storage.bdb.cacheSize=1g 
+
+#Database txn logger configurations
+#
+#Txn logger class
+#rc.server.db.log.AsyncTxnLogger (Default)
+rc.db.txn.log.class=rc.server.db.log.AsyncTxnLogger
+#
+#Log file, default is null, which will use the following directory, prefix, and
+#suffix to build one.  Default log file is: directory/"prefix serverId suffix".
+#If log file is specificed, ingore the directory, prefix, and suffix properties.
+#rc.db.txn.log.file=txn.log
+rc.db.txn.log.dir=./
+rc.db.txn.log.file.prefix=server-
+rc.db.txn.log.file.suffix=-txn.log
+#
+#If appends to existing log files. If false, create a new log file. Default is false.
+rc.db.txn.log.file.append=false
+  

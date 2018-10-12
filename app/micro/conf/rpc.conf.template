@@ -1,0 +1,16 @@
+# rpc framework settings
+
+# server side
+#rpc.host.id=SERVER-ID
+rpc.host.ip=localhost
+rpc.host.port=0
+rpc.host.threadpool.size=0
+#rpc.host.connection.max=1024
+rpc.host.signatures=./rpc-signatures
+
+# specrpc client side
+specrpc.client.threadpool.size=0
+# specrpc statistics
+specrpc.statistics.enabled=false
+specrpc.statistics.incorrectPrediction.enabled=false
+

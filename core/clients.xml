@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="specrpc-core" default="IterMultiServersTest" basedir="../">
+	<target name="IterMultiServersTest">
+		<!--<delete file="directory.properties"/>-->
+		
+		<path id="classpath.base">
+			<pathelement location="./core/target/test-classes"/>
+      <pathelement path="${java.class.path};./core/target/specrpc-core-0.1-jar-with-dependencies.jar;./core/ant-test-libs/gson-2.2.4.jar;./core/ant-test-libs/junit-4.8.2.jar"/>
+		 </path>
+		
+		<java classname="specrpc.iterativeMultiServers.IterMultiServersTest">
+			<arg value="client"/>
+			<arg value="1" />
+			<arg value="100" /> <!-- How many clients will run sequentially-->
+			<classpath refid="classpath.base" />
+		</java>
+
+	</target>
+
+</project>

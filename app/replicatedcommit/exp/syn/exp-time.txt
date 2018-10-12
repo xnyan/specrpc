@@ -1,0 +1,2 @@
+1. With BDB, init 10m keys, need 90s, but bdb continues to use CPU for another ~60s
+2. With InMemDB, init 10m keys need about 6s.
