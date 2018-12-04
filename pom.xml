@@ -6,7 +6,7 @@
   <artifactId>specrpc</artifactId>
   <version>0.1</version>
   <packaging>pom</packaging>
-  <name>Spec RPC</name>
+  <name>SpecRPC</name>
   
   <modules>
     <module>network/multi-socket</module>

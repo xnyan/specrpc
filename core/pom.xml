@@ -14,7 +14,7 @@
   <artifactId>specrpc-core</artifactId>
   <version>0.1</version>
   <packaging>jar</packaging>
-  <name>Spec RPC Core</name>
+  <name>SpecRPC Core</name>
 
   <dependencies>
     <dependency>

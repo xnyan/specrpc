@@ -14,7 +14,7 @@
   <artifactId>specrpc-micro</artifactId>
   <version>0.1</version>
   <packaging>jar</packaging>
-  <name>Spec RPC Micro Benchmark</name>
+  <name>SpecRPC Micro Benchmark</name>
   
   <properties>
     <grpc.version>1.8.0</grpc.version>

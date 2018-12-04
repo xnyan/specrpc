@@ -14,7 +14,7 @@
   <artifactId>specrpc-utils</artifactId>
   <version>0.1</version>
   <packaging>jar</packaging>
-  <name>Spec RPC App Utils</name>
+  <name>SpecRPC App Utils</name>
   
   <dependencies>
     <dependency>
