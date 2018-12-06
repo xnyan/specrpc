@@ -14,7 +14,7 @@ A paper about SpecRPC's design will appear in
 
 This repo includes the source code of SpecRPC's prototype that is implemented
 in Java.
-The "build.sh" script in root directory will build SpecRPC as a jar lib,
+The "build.sh" script in the root directory will build SpecRPC as a jar lib,
 which will be easy to deploy and test in an application.
 
 In the "/core" directory, there are a set of tests to examine the correctness
@@ -47,7 +47,7 @@ Besides the above applications showing the usage of SpecRPC, a tutorial for
 SpecRPC is under construction and will be coming soon.
 
 
-# A Summary of SpecRPC's Design Pattern and Features
+# SpecRPC's Design Pattern and Features
 
 SpecRPC allows an RPC to take a Callback.
 Without speculation, once the RPC completes, the Callback will execute with the
@@ -59,6 +59,8 @@ execute the Callback.
 When the RPC completes, SpecRPC knows whether the the prediction is correct.
 If the prediction is correct, the Callback and the RPC execute in parallel,
 which will reduce the latency compared to the sequential execution.
+
+## Multiple Concurrent Speculations for an Execution
 
 An application can make multiple predictions for an RPC's return value.
 For each prediction, SpecRPC will speculatively execute a Callback.
@@ -80,6 +82,8 @@ in the middle of the RPC's execution.
 This provides more opportunities for an application to make predictions in
 order to perform speculative executions.
 
+## Performing Speculative RPCs
+
 SpecRPC also allows an application to perform RPCs within a speculative
 execution, where these RPCs will be speculative too.
 The application can also make predictions for the results of speculative RPCs
@@ -87,6 +91,8 @@ in order to perform more speculative execution.
 By using SpecRPC, an application does not need to track the dependencies between
 speculative and non-speculative operations.
 Instead, SpecRPC will track the dependencies and discard incorrect speculations.
+
+## Preventing Side-Effects
 
 SpecRPC recommends that an application encapsulates state changes within
 Callbacks and RPCs.
@@ -103,6 +109,8 @@ a speculation in the SpecRPC framework.
 The framework will automatically execute the rollback function if the
 speculation is incorrect. 
 
+## Asynchronous RPC Framework
+
 SpecRPC is also an asynchronous RPC framework.
 Each RPC will immediately return a future object.
 This will make an RPC client not block on the execution of the RPC and the
@@ -110,13 +118,15 @@ Callback.
 The RPC client can use the future object to retrieve the Callback's result.
 
 
-# Requirements 
+# Installation
+
+## Requirements 
 
 openjdk-8+
 
 maven-3.5+
 
-# Installation
+## Compilation
 
 git clone https://github.com/xnyan/specrpc.git ./
 
