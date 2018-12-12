@@ -46,6 +46,29 @@ Replicated Commit.
 Besides the above applications showing the usage of SpecRPC, a tutorial for
 SpecRPC is under construction and will be coming soon.
 
+# Installation
+
+## Requirements 
+
+openjdk-8+
+
+maven-3.5+
+
+## Compilation
+
+git clone https://github.com/xnyan/specrpc.git ./
+
+export SPECRPC_HOME="The Path to SpecRPC directory" or use the "config.sh" script under ${SPECRPC_HOME} 
+
+run the "${SPECRPC_HOME}/build.sh" script to build the SpecRPC lib and the applications in this repo.
+
+The SpecRPC lib will be generated as a file like "specrpc-core-0.1-jar-with-dependencies.jar"
+in the directory of $SPECRPC_HOME/core/target/
+
+# Tutorial
+
+Under construction.
+
 
 # SpecRPC's Design Pattern and Features
 
@@ -116,28 +139,3 @@ Each RPC will immediately return a future object.
 This will make an RPC client not block on the execution of the RPC and the
 Callback.
 The RPC client can use the future object to retrieve the Callback's result.
-
-
-# Installation
-
-## Requirements 
-
-openjdk-8+
-
-maven-3.5+
-
-## Compilation
-
-git clone https://github.com/xnyan/specrpc.git ./
-
-export SPECRPC_HOME="The Path to SpecRPC directory" or use the "config.sh" script under ${SPECRPC_HOME} 
-
-run the "${SPECRPC_HOME}/build.sh" script to build the SpecRPC lib and the applications in this repo.
-
-The SpecRPC lib will be generated as a file like "specrpc-core-0.1-jar-with-dependencies.jar"
-in the directory of $SPECRPC_HOME/core/target/
-
-# Tutorial
-
-Under construction.
-
