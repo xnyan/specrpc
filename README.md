@@ -7,8 +7,8 @@ to overlap the executions of multiple RPCs and local operations that have
 dependencies.
 SpecRPC introduces a design pattern that will simplify the implementation of
 such speculative executions.
-A paper about SpecRPC's design will appear in
-[Middleware'18](http://2018.middleware-conference.org/) soon.
+A paper about SpecRPC has been published in
+[Middleware'18](http://2018.middleware-conference.org/).
 
 # Repo Information
 
