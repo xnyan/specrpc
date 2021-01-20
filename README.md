@@ -7,8 +7,27 @@ to overlap the executions of multiple RPCs and local operations that have
 dependencies.
 SpecRPC introduces a design pattern that will simplify the implementation of
 such speculative executions.
-A paper about SpecRPC has been published in
-[Middleware'18](http://2018.middleware-conference.org/).
+
+This repo includes the implementation of SpecRPC for our [Middleware'18](http://2018.middleware-conference.org/) paper: ["SpecRPC: A General Framework for Performing Speculative Remote Procedure Calls."](https://dl.acm.org/doi/10.1145/3274808.3274829)
+
+# Installation
+
+## Requirements 
+
+openjdk-8+
+
+maven-3.5+
+
+## Compilation
+
+git clone https://github.com/xnyan/specrpc.git ./
+
+export SPECRPC_HOME="The Path to SpecRPC directory" or use the "config.sh" script under ${SPECRPC_HOME} 
+
+run the "${SPECRPC_HOME}/build.sh" script to build the SpecRPC lib and the applications in this repo.
+
+The SpecRPC lib will be generated as a file like "specrpc-core-0.1-jar-with-dependencies.jar"
+in the directory of $SPECRPC_HOME/core/target/
 
 # Repo Information
 
@@ -46,24 +65,6 @@ Replicated Commit.
 Besides the above applications showing the usage of SpecRPC, a tutorial for
 SpecRPC is under construction and will be coming soon.
 
-# Installation
-
-## Requirements 
-
-openjdk-8+
-
-maven-3.5+
-
-## Compilation
-
-git clone https://github.com/xnyan/specrpc.git ./
-
-export SPECRPC_HOME="The Path to SpecRPC directory" or use the "config.sh" script under ${SPECRPC_HOME} 
-
-run the "${SPECRPC_HOME}/build.sh" script to build the SpecRPC lib and the applications in this repo.
-
-The SpecRPC lib will be generated as a file like "specrpc-core-0.1-jar-with-dependencies.jar"
-in the directory of $SPECRPC_HOME/core/target/
 
 # Tutorial
 
