@@ -17,7 +17,7 @@
   <name>Replicated Commit</name>
   
   <properties>
-    <grpc.version>1.8.0</grpc.version>
+    <grpc.version>1.53.0</grpc.version>
   </properties>
 
   <dependencies>
